@@ -1,0 +1,138 @@
+.main-login-container {
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  margin-right: 10px;
+  border: 3px solid lightblue;
+  padding: 10px;
+  border-radius: 13px;
+}
+
+.logo-heading {
+  color: lightblue;
+}
+.login-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-form-container {
+  align-self: center;
+}
+.login-main-image-container {
+  display: flex;
+  width: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.website-logo-container {
+  text-align: center;
+}
+.username-field {
+  width: 100%;
+  text-align: center;
+}
+.password-field {
+  width: 100%;
+  text-align: center;
+}
+.username-container {
+  display: flex;
+  width: 312px;
+  padding-top: 3px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+.username-label-styles {
+  width: 94px;
+  color: #5a7184;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 15px;
+}
+.username-input-box {
+  width: 312px;
+  height: 56px;
+  padding: 10px;
+  color: #183b56;
+  border: 1px solid #c3cad9;
+  border-radius: 6px;
+}
+.password-container {
+  display: flex;
+  width: 312px;
+  padding-top: 3px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+.password-label-styles {
+  margin-top: 15px;
+  width: 88px;
+  color: #5a7184;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.password-input-box {
+  width: 312px;
+  height: 56px;
+  padding: 10px;
+  color: #183b56;
+  border: 1px solid #c3cad9;
+  border-radius: 6px;
+}
+.login-button-container {
+  width: 100%;
+
+  margin-top: 20px;
+}
+.login-button-styles {
+  width: 312px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: #0284c7;
+  border: 1px solid #0284c7;
+  cursor: pointer;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+
+  border-radius: 6px;
+}
+@media all and (max-width: 576px) {
+  .main-image-small {
+    width: 450px;
+    margin-top: 60px;
+    align-self: center;
+  }
+  .main-image-medium {
+    display: none;
+  }
+  .main-image-large {
+    display: none;
+  }
+  .website-logo {
+    width: 300px;
+  }
+}
