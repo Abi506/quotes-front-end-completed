@@ -4,6 +4,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.17.0
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^13.5.0
+  cors: ^2.8.5
   js-cookie: ^3.0.5
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -17,6 +18,7 @@ dependencies:
   '@testing-library/jest-dom': 5.17.0
   '@testing-library/react': 13.4.0_react-dom@18.2.0+react@18.2.0
   '@testing-library/user-event': 13.5.0
+  cors: 2.8.5
   js-cookie: 3.0.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3877,6 +3879,14 @@ packages:
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+    dev: false
+
+  /cors/2.8.5:
+    resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
     dev: false
 
   /cosmiconfig/6.0.0:

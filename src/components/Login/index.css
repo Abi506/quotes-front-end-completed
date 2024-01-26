@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .logo {
   margin-right: 10px;
@@ -15,10 +14,12 @@
 
 .logo-heading {
   color: lightblue;
+  margin-bottom: 30px;
 }
 .login-form {
   height: 100%;
   width: 100%;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +32,7 @@
   width: 100vh;
   flex-direction: column;
   justify-content: center;
+  margin-top: 50px;
   align-items: center;
 }
 .website-logo-container {
@@ -64,8 +66,8 @@
   margin-top: 15px;
 }
 .username-input-box {
-  width: 312px;
-  height: 56px;
+  width: 300px;
+  height: 45px;
   padding: 10px;
   color: #183b56;
   border: 1px solid #c3cad9;
@@ -91,8 +93,8 @@
   line-height: normal;
 }
 .password-input-box {
-  width: 312px;
-  height: 56px;
+  width: 300px;
+  height: 45px;
   padding: 10px;
   color: #183b56;
   border: 1px solid #c3cad9;
@@ -104,7 +106,7 @@
   margin-top: 20px;
 }
 .login-button-styles {
-  width: 312px;
+  width: 321px;
   height: 40px;
   flex-shrink: 0;
   background-color: #0284c7;
@@ -120,19 +122,32 @@
 
   border-radius: 6px;
 }
-@media all and (max-width: 576px) {
+@media all and (max-width: 776px) {
   .main-image-small {
     width: 450px;
-    margin-top: 60px;
+    margin-top: 100px;
     align-self: center;
-  }
-  .main-image-medium {
-    display: none;
   }
   .main-image-large {
     display: none;
   }
   .website-logo {
     width: 300px;
+  }
+}
+@media all and (min-width: 777px) {
+  .main-image-small {
+    display: none;
+  }
+  .main-image-large {
+    display: block;
+    width: 500px;
+  }
+  .main-login-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }

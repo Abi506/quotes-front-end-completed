@@ -16,7 +16,7 @@ class Login extends Component {
 
   onSubmitSuccess = (jwtToken) => {
     const { history } = this.props;
-
+    console.log(jwtToken, "success");
     Cookies.set("jwt_token", jwtToken, {
       expires: 30,
     });
@@ -32,15 +32,20 @@ class Login extends Component {
 
     const { username, password } = this.state;
     const userDetails = { username, password };
-    const apiUrl = "https://apis.ccbp.in/login";
+    console.log(userDetails, "userdetails");
+    const apiUrl = "http://localhost:3001/login/";
     const method = {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(userDetails),
     };
+    console.log(JSON.stringify(userDetails));
     const response = await fetch(apiUrl, method);
     const data = await response.json();
     if (response.ok === true) {
-      this.onSubmitSuccess(data.jwt_token);
+      this.onSubmitSuccess(data.jwtToken);
     } else {
       this.onSubmitFailure(data.error_msg);
     }
@@ -79,7 +84,9 @@ class Login extends Component {
   render() {
     const { isError, errorMsg } = this.state;
     const jwtToken = Cookies.get("jwt_token");
+    console.log(jwtToken, "jwtToken login");
     if (jwtToken !== undefined) {
+      console.log("success");
       return <Redirect to="/" />;
     }
     return (
@@ -90,14 +97,9 @@ class Login extends Component {
             alt="website login"
             className="main-image-small"
           />
-          <img
-            src="https://res.cloudinary.com/dkmnh0kwl/image/upload/v1699859304/Ellipse_99_qpcrzu.png"
-            alt="website login"
-            className="main-image-medium"
-          />
 
           <img
-            src="https://res.cloudinary.com/dkmnh0kwl/image/upload/v1699859304/Ellipse_99_qpcrzu.png"
+            src="https://res.cloudinary.com/dkmnh0kwl/image/upload/v1706248931/quotes_co6ipw.avif"
             alt="website login"
             className="main-image-large"
           />
