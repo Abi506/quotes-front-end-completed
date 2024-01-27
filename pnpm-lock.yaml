@@ -10,8 +10,10 @@ specifiers:
   react-dom: ^18.2.0
   react-icons: ^5.0.1
   react-loader-spinner: ^6.1.6
+  react-modal: ^3.16.1
   react-router-dom: 5.2.0
   react-scripts: 5.0.1
+  reactjs-popup: ^2.0.6
   web-vitals: ^2.1.4
 
 dependencies:
@@ -24,8 +26,10 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-icons: 5.0.1_react@18.2.0
   react-loader-spinner: 6.1.6_react-dom@18.2.0+react@18.2.0
+  react-modal: 3.16.1_react-dom@18.2.0+react@18.2.0
   react-router-dom: 5.2.0_react@18.2.0
   react-scripts: 5.0.1_react@18.2.0
+  reactjs-popup: 2.0.6_react-dom@18.2.0+react@18.2.0
   web-vitals: 2.1.4
 
 packages:
@@ -5042,6 +5046,10 @@ packages:
       strip-final-newline: 2.0.0
     dev: false
 
+  /exenv/1.2.2:
+    resolution: {integrity: sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw==}
+    dev: false
+
   /exit/0.1.2:
     resolution: {integrity: sha512-Zk/eNKV2zbjpKzrsQ+n1G6poVbErQxJ0LBOJXaKZ1EViLzH+hrLu9cdXI4zw9dBQJslwBEpbQ2P1oS7nDxs6jQ==}
     engines: {node: '>= 0.8.0'}
@@ -8717,6 +8725,10 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
+  /react-lifecycles-compat/3.0.4:
+    resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
   /react-loader-spinner/6.1.6_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-x5h1Jcit7Qn03MuKlrWcMG9o12cp9SNDVHVJTNRi9TgtGPKcjKiXkou4NRfLAtXaFB3+Z8yZsVzONmPzhv2ErA==}
     engines: {node: '>= 12'}
@@ -8728,6 +8740,21 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.2.0
       styled-components: 6.1.8_react-dom@18.2.0+react@18.2.0
+    dev: false
+
+  /react-modal/3.16.1_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-VStHgI3BVcGo7OXczvnJN7yT2TWHJPDXZWyI/a0ssFNhGZWsPmB8cF0z33ewDXq4VfYMO1vXgiv/g8Nj9NDyWg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+      react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
+    dependencies:
+      exenv: 1.2.2
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-lifecycles-compat: 3.0.4
+      warning: 4.0.3
     dev: false
 
   /react-refresh/0.11.0:
@@ -8867,6 +8894,17 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /reactjs-popup/2.0.6_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-A+tt+x9wdgZiZjv0e2WzYLD3IfFwJALaRaqwrCSXGjo0iQdsry/EtBEbQXRSmQs7cHmOi5eytCiSlOm8k4C+dg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /read-cache/1.0.0:
@@ -10267,6 +10305,12 @@ packages:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
     dependencies:
       makeerror: 1.0.12
+    dev: false
+
+  /warning/4.0.3:
+    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
+    dependencies:
+      loose-envify: 1.4.0
     dev: false
 
   /watchpack/2.4.0:

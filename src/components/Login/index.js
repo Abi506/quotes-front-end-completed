@@ -1,11 +1,18 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
+import ReactPopUp from '../Register'
 
 import "./index.css";
 
 class Login extends Component {
-  state = { username: "", password: "", isError: false, errorMsg: "" };
+  state = { 
+    username: "",
+    password: "",
+    isError: false,
+    errorMsg: "",
+    redirectToHome: false,
+  };
   userNameEvent = (event) => {
     this.setState({ username: event.target.value });
   };
@@ -16,7 +23,6 @@ class Login extends Component {
 
   onSubmitSuccess = (jwtToken) => {
     const { history } = this.props;
-    console.log(jwtToken, "success");
     Cookies.set("jwt_token", jwtToken, {
       expires: 30,
     });
@@ -26,6 +32,7 @@ class Login extends Component {
   onSubmitFailure = (errorMsg) => {
     this.setState({ isError: true, errorMsg });
   };
+
 
   submitEvent = async (event) => {
     event.preventDefault();
@@ -41,12 +48,14 @@ class Login extends Component {
       },
       body: JSON.stringify(userDetails),
     };
-    console.log(JSON.stringify(userDetails));
+
     const response = await fetch(apiUrl, method);
+    console.log(response, "response");
     const data = await response.json();
+    console.log(data, "data");
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwtToken);
-    } else {
+    } else if (response.ok === false) {
       this.onSubmitFailure(data.error_msg);
     }
   };
@@ -81,12 +90,11 @@ class Login extends Component {
     </div>
   );
 
+
   render() {
     const { isError, errorMsg } = this.state;
     const jwtToken = Cookies.get("jwt_token");
-    console.log(jwtToken, "jwtToken login");
     if (jwtToken !== undefined) {
-      console.log("success");
       return <Redirect to="/" />;
     }
     return (
@@ -113,12 +121,14 @@ class Login extends Component {
             </div>
             <div className="username-field">{this.renderUserName()}</div>
             <div className="password-field">{this.renderPassword()}</div>
-            {isError && <p className="error-message-styles">{errorMsg}</p>}
+            {isError && <p className="error-message-styles">*{errorMsg}</p>}
             <div className="login-button-container">
               <button type="submit" className="login-button-styles">
                 Login
               </button>
             </div>
+           <ReactPopUp className="popup-styles"/>
+            
           </div>
         </form>
       </div>

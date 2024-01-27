@@ -1,8 +1,9 @@
 import { Component } from "react";
+import { BsSearch } from "react-icons/bs";
 import Cookies from "js-cookie";
 import { ThreeCircles } from "react-loader-spinner";
+import QuotesItem from "../QuotesItem";
 import Header from "../Header";
-
 import "./index.css";
 
 const status = {
@@ -12,49 +13,53 @@ const status = {
   in_progress: "IN_PROGRESS",
 };
 
-class Home extends Component {
-  state = { data: [], apiStatus: status.initial };
+class Quotes extends Component {
+  state = {
+    data: [],
+    search_text: "",
+    apiStatus: status.initial,
+  };
 
   componentDidMount() {
     this.getData();
   }
 
+  searchInput = (event) => {
+    this.setState({ search_text: event.target.value });
+  };
+
+  searchIconPressed = () => {
+    this.setState(() => {
+      this.getData();
+    });
+  };
+
   getData = async () => {
+    const { search_text } = this.state;
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
-    console.log(jwtToken, "jwtoken");
-    const url = `http://localhost:3001/top-quotes/`;
+    const url = `http://localhost:3001/all-quotes?search=${search_text}`;
+    console.log(url, "url");
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
       },
       method: "GET",
     };
-
     const response = await fetch(url, options);
     if (response.ok) {
       const data = await response.json();
-      //console.log(data, "data");
+      console.log(data, "data");
       const formattedData = data.map((each) => ({
-        author: each.author,
-        explanation: each.explanation,
-        id: each.id,
         quote: each.quote,
+        explanation: each.explanation,
+        author: each.author,
+        id: each.id,
       }));
-      console.log(formattedData, "formatted data");
       this.setState({ apiStatus: status.success, data: formattedData });
     } else {
       this.setState({ apiStatus: status.failure });
     }
-  };
-
-  retryEvent = () => {
-    this.getData();
-  };
-
-  searchQuotes = () => {
-    const { history } = this.props;
-    history.replace("/all-quotes/");
   };
 
   renderLoader = () => (
@@ -90,54 +95,41 @@ class Home extends Component {
     switch (apiStatus) {
       case status.in_progress:
         return this.renderLoader();
+      case status.success:
+        return this.renderSuccess();
       default:
-        return null;
+        return this.renderFail();
     }
   };
 
   render() {
-    const { data, apiStatus } = this.state;
+    const { data } = this.state;
+
     return (
       <>
         <Header />
-        <div>
-          {this.renderFinal()}
-          {apiStatus === status.success && (
-            <div className="home-container">
-              <h1 className="home-heading">
-                Discover Your Next Favorite Quotes!
-              </h1>
-              <p className="home-para">
-                Discover meaningful quotes for every mood and moment on our
-                inspirational quote website. Share wisdom, motivation, and joy
-                with curated collections tailored to your taste. Your next
-                favorite quotes are just a click away!
-              </p>
-              <div className="home-button-container">
-                <button
-                  type="button"
-                  className="search-quotes-button"
-                  onClick={this.searchQuotes}
-                >
-                  Search Quotes
-                </button>
-              </div>
-              <div className="top-quotes-container">
-                <h1 className="top-quotes-heading">Top Quotes</h1>
-                <ul className="top-quotes-list">
-                  {data.map((each) => (
-                    <li key={each.id} className="top-quotes-each-list">
-                      {each.quote}
-                      <span className="each-author">-{each.author}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="quotes-container">
+          <div className="input-container">
+            <input
+              type="search"
+              className="input-box"
+              onChange={this.searchInput}
+              placeholder="Search"
+            />
+            <div className="search-icon-container">
+              <button
+                className="search-button"
+                type="button"
+                onClick={this.searchIconPressed}
+              >
+                <BsSearch className="search-icon" />
+              </button>
             </div>
-          )}
+          </div>
+          <QuotesItem details={data} />
         </div>
       </>
     );
   }
 }
-export default Home;
+export default Quotes;

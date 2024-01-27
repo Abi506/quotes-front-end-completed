@@ -1,0 +1,147 @@
+.user-profile-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.user-profile-container-large {
+  display: none;
+}
+.username-userid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.userid {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 25px;
+}
+.profile-image {
+  font-size: 250px;
+  align-self: center;
+}
+.username {
+  font-family: sans-serif;
+  color: #777a7a;
+  font-size: 25px;
+}
+
+.name-and-age-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.name {
+  font-size: 19px;
+}
+.user-icon {
+  margin-right: 10px;
+  font-size: 24px;
+  align-self: center;
+}
+.location-and-occupation {
+  display: flex;
+  justify-content: space-between;
+}
+.occupation-icon {
+  font-size: 26px;
+  margin-right: 10px;
+}
+.occupation {
+  display: flex;
+  font-size: 18px;
+}
+.location-icon {
+  font-size: 25px;
+  margin-right: 10px;
+}
+.location {
+  display: flex;
+  font-size: 18px;
+}
+.mail-icon {
+  font-size: 28px;
+  margin-right: 10px;
+}
+.mail {
+  display: flex;
+  font-size: 20px;
+}
+
+.mobile-icon {
+  font-size: 25px;
+  margin-right: 10px;
+}
+.mobile {
+  display: flex;
+  font-size: 20px;
+}
+
+@media all and (max-width: 580px) {
+  .age {
+    margin-right: 37px;
+    font-size: 18px;
+    align-self: center;
+  }
+}
+@media all and (min-width: 580px) {
+  .user-profile-container {
+    display: none;
+  }
+  .user-profile-container-large {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+  }
+  .profile-card-container {
+    border-radius: 4px;
+    width: 30%;
+    display: flex;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4%;
+  }
+  .username {
+    margin: 19px;
+    font-size: 22px;
+    font-family: none;
+    margin-left: 0px;
+    color: black;
+  }
+  .occupation {
+    margin: 5px;
+  }
+  .userid {
+    margin: 19px;
+    font-size: 19px;
+    margin-left: 0px;
+    font-family: none;
+  }
+  .user-details-container-large {
+    border-radius: 4px;
+    width: 60%;
+    display: flex;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    padding: 2%;
+    align-items: left;
+  }
+  .age {
+    margin-right: 37px;
+    margin: 19px;
+    align-self: left;
+    margin-left: 0px;
+    font-size: 19px;
+    color: black;
+  }
+  .mail {
+    font-size: 19px;
+  }
+  .mobile {
+    font-size: 19px;
+  }
+}

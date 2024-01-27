@@ -1,0 +1,56 @@
+.list-of_quotes {
+  padding: 0px;
+}
+@media all and (max-width: 580px) {
+  .all-quotes-quote {
+    list-style-type: none;
+    align-self: center;
+    height: 94px;
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    color: #68706d;
+    margin-top: 2px;
+    flex-direction: column;
+    font-family: Inter;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  .each-quotes-items {
+    margin-right: 10px;
+  }
+}
+@media all and (min-width: 580px) {
+  .list-of_quotes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .each-quotes-items {
+    width: 100vh;
+    margin-right: 20px;
+  }
+  .all-quotes-quote {
+    list-style-type: none;
+    align-self: center;
+    height: 94px;
+    font-size: 16px;
+    display: flex;
+    color: #68706d;
+    margin-top: 2px;
+    flex-direction: column;
+    font-family: Inter;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

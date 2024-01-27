@@ -1,0 +1,49 @@
+.trigger-button {
+  background: transparent;
+  border: none;
+  margin-top: 10px;
+}
+.popup-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.registration-form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  height: 600px;
+  overflow: auto;
+}
+.container-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.register-heading {
+  color: lightblue;
+}
+.common-text-box {
+  width: 250px;
+  height: 46px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.common-label {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: inter;
+}
+.register-submit-button {
+  padding: 10px;
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+}
+.details-message {
+  color: red;
+}

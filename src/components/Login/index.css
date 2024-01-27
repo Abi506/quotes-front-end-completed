@@ -5,13 +5,13 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .logo {
   margin-right: 10px;
   border: 3px solid lightblue;
   padding: 10px;
   border-radius: 13px;
 }
-
 .logo-heading {
   color: lightblue;
   margin-bottom: 30px;
@@ -121,6 +121,9 @@
   font-weight: 700;
 
   border-radius: 6px;
+}
+.error-message-styles {
+  color: red;
 }
 @media all and (max-width: 776px) {
   .main-image-small {

@@ -1,0 +1,28 @@
+.QuotesItemDetails-container {
+  background-image: url("https://res.cloudinary.com/dkmnh0kwl/image/upload/v1706345156/vertical-view-long-wooden-pier-near-ocean-pastel-colored-sky_181624-6302_bf4gzs.avif");
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Inter;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+.author-name {
+  text-align: right;
+  margin-right: 40px;
+}
+@media all and (min-width: 580px) {
+  .QuotesItemDetails-container {
+    background-image: url("https://res.cloudinary.com/dkmnh0kwl/image/upload/v1706345297/long-exposure-pier_1401-393_yozw4d.jpg");
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Inter;
+    background-size: cover;
+    text-align: center;
+    color: white;
+  }
+}

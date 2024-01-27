@@ -1,0 +1,108 @@
+.author-quotes-author-page {
+  padding: 10px;
+  list-style-type: none;
+}
+.back-button-styles {
+  background-color: lightblue;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border: transparent;
+  border-radius: 5px;
+}
+.each-quote-author-page {
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+  padding: 10px;
+}
+.quote-heading-authors-page {
+  font-family: inter;
+  font-size: 20px;
+  text-align: center;
+}
+.authors-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  list-style-type: none;
+  padding: 10px;
+}
+.author-image-container {
+  text-align: center;
+}
+.author-name {
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  margin-top: 5px;
+}
+.each-author-authors-page {
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  border-radius: 2px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+  min-height: 210px;
+}
+.author-image-name-container {
+  padding-left: 5px;
+}
+.about-author-container {
+  padding-left: 5px;
+}
+.about-author-para {
+  font-family: inter;
+  text-align: left;
+}
+@media all and (max-width: 580px) {
+  .author-image {
+    width: 140px;
+    height: 160px;
+  }
+}
+@media all and (min-width: 580px) {
+  .author-image {
+    height: 210px;
+    width: 200px;
+  }
+  .authors-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    list-style-type: none;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .each-author-authors-page {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+    min-height: 200px;
+    padding: 10px;
+    width: 70vh;
+    margin: 10px;
+  }
+  .each-quote-author-page {
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .back-button-styles {
+    background-color: lightblue;
+    padding: 15px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    border: transparent;
+    border-radius: 5px;
+  }
+}
