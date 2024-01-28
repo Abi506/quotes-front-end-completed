@@ -54,6 +54,9 @@ class Header extends Component {
               <Link to="/authors/" className="nav-link">
                 <li className="color1-section-small">Authors </li>
               </Link>
+              <Link to="/my-quotes/" className="nav-link">
+                <li className="color2-section-small">MyQuotes</li>
+              </Link>
               <Link to="/profile/" className="nav-link">
                 <li className="color2-section-small">
                   <CgProfile className="color2-section-small" />
@@ -97,9 +100,12 @@ class Header extends Component {
             <Link to="/authors" className="nav-link">
               <li className="color1-section">Authors</li>
             </Link>
+            <Link to="/my-quotes/" className="nav-link">
+              <li className="color2-section">MyQuotes</li>
+            </Link>
             <Link to="/profile" className="nav-link">
               <li className="color2-section">
-                <CgProfile className="color2-section" />
+                <CgProfile className="header-profile" />
               </li>
             </Link>
             <li className="button-list">

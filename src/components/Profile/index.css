@@ -7,6 +7,9 @@
 .user-profile-container-large {
   display: none;
 }
+.popup-styles-profile {
+  width: 100%;
+}
 .username-userid-container {
   display: flex;
   flex-direction: row;

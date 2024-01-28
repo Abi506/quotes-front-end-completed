@@ -1,0 +1,23 @@
+.each-quotes-items {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.all-quotes-my-quote {
+  font-family: inter;
+}
+.no-quotes-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+@media all and (max-width: 580px) {
+  .no-quotes-heading {
+    font-family: inter;
+    font-size: 20px;
+  }
+}
+.no-quotes-heading {
+  font-family: inter;
+}

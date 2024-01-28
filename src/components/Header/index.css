@@ -78,6 +78,7 @@
   }
   .button-list {
     align-self: center;
+    margin-right: 0px;
   }
   .close-button {
     background: transparent;
@@ -186,6 +187,9 @@
   }
   .nav-link {
     text-decoration: none;
+    align-self: center;
+  }
+  .header-profile {
     align-self: center;
   }
 }
