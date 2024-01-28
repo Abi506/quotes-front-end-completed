@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+## Quotopia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Quotopia is a quotes website dedicated to inspiring its users. It offers a collection of quotes from great people to uplift and motivate visitors. Additionally, users can contribute to the platform by writing and uploading their own quotes. Quotopia also allows users to update and delete their previously uploaded quotes, providing a personalized experience for sharing and reflecting on inspiring words.
 
-## Available Scripts
+## Objective
 
-In the project directory, you can run:
+The objective of Quotopia is to create a platform where users can discover, share, and be inspired by a wide range of quotes from notable individuals. It aims to foster a sense of motivation and empowerment by providing access to uplifting and thought-provoking quotes. Additionally, Quotopia seeks to encourage user engagement by allowing individuals to contribute their own quotes, as well as manage and personalize their quote collections by updating and deleting their submissions.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Front End
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- JavaScript
+- CSS
 
-### `npm test`
+### Back End
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- SQLite
+- Node.js with Express.js
+- REST APIs
 
-### `npm run build`
+## Third Part Packages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Front End
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React Icons
+- Reactjs Popup
+- React Router Dom
+- js cookie
+- react loader spinner
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Back End
 
-### `npm run eject`
+- Json Web token
+- Bcrypt
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Got to the Project folder then follow these steps for front end
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Install Dependencies
+  - npm install
+- Run The Application
+  - npm start
+- To Run the Backend
+  - node app.js

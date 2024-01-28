@@ -1,12 +1,12 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
-import { Redirect,Link } from "react-router-dom";
-import ReactPopUp from '../Register'
+import { Redirect } from "react-router-dom";
+import ReactPopUp from "../Register";
 
 import "./index.css";
 
 class Login extends Component {
-  state = { 
+  state = {
     username: "",
     password: "",
     isError: false,
@@ -33,13 +33,12 @@ class Login extends Component {
     this.setState({ isError: true, errorMsg });
   };
 
-
   submitEvent = async (event) => {
     event.preventDefault();
 
     const { username, password } = this.state;
     const userDetails = { username, password };
-    console.log(userDetails, "userdetails");
+
     const apiUrl = "http://localhost:3001/login/";
     const method = {
       method: "POST",
@@ -50,9 +49,9 @@ class Login extends Component {
     };
 
     const response = await fetch(apiUrl, method);
-    console.log(response, "response");
+
     const data = await response.json();
-    console.log(data, "data");
+
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwtToken);
     } else if (response.ok === false) {
@@ -90,7 +89,6 @@ class Login extends Component {
     </div>
   );
 
-
   render() {
     const { isError, errorMsg } = this.state;
     const jwtToken = Cookies.get("jwt_token");
@@ -127,8 +125,7 @@ class Login extends Component {
                 Login
               </button>
             </div>
-           <ReactPopUp className="popup-styles"/>
-            
+            <ReactPopUp className="popup-styles" />
           </div>
         </form>
       </div>

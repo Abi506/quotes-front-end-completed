@@ -37,7 +37,6 @@ class DeleteQuotes extends Component {
         body: JSON.stringify(userDetails),
       };
       const response = await fetch(apiUrl, method);
-      console.log(response, "response");
     }
   };
 

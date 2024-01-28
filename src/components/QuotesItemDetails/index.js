@@ -29,7 +29,6 @@ class QuoteItemDetails extends Component {
     const { params } = match;
     const { id } = params;
     const jwtToken = Cookies.get("jwt_token");
-    console.log(jwtToken, "jwhere");
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -47,7 +46,7 @@ class QuoteItemDetails extends Component {
         explanation: data.explanation,
         quote: data.quote,
       };
-      console.log(formattedData, "formattedData");
+
       this.setState({ data: formattedData, apiStatus: status.success });
     } else {
       this.setState({ apiStatus: status.failure });
@@ -62,7 +61,7 @@ class QuoteItemDetails extends Component {
 
   renderSuccess = () => {
     const { data } = this.state;
-    const { author, explanation, id, quote } = data;
+    const { author, explanation, quote } = data;
 
     return (
       <div className="QuotesItemDetails-container">

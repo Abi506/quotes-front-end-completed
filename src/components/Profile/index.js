@@ -33,11 +33,9 @@ class Profile extends Component {
   }
 
   getData = async () => {
-    const { author } = this.state;
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
     const url = `http://localhost:3001/profile/`;
-    console.log(url);
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -47,8 +45,7 @@ class Profile extends Component {
     const response = await fetch(url, options);
     if (response.ok) {
       const data = await response.json();
-      console.log(data, "data");
-      console.log(data, "formatted Data");
+
       this.setState({ apiStatus: status.success, data: data });
     } else {
       this.setState({ apiStatus: status.failure });

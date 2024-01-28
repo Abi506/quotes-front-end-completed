@@ -33,7 +33,6 @@ class UpdateQuotes extends Component {
 
     if (quoteid === "" || quote === "" || explanation === "") {
       this.setState({ allDetailsFilled: false });
-      console.log("Please fill in all required fields");
     } else {
       const apiUrl = `http://localhost:3001/my-quotes/`;
       const jwtToken = Cookies.get("jwt_token");
@@ -46,7 +45,6 @@ class UpdateQuotes extends Component {
         body: JSON.stringify(userDetails),
       };
       const response = await fetch(apiUrl, method);
-      console.log(response, "upload response");
 
       this.setState({
         allDetailsFilled: true,
@@ -55,7 +53,6 @@ class UpdateQuotes extends Component {
         explanation: "",
         updatedSuccessfully: true,
       });
-      console.log("All fields filled, form submitted");
     }
   };
 

@@ -108,7 +108,6 @@ class Authors extends Component {
   }
 
   eventTriggered = (value) => {
-    console.log(value);
     const { displayAuthor } = this.state;
     this.setState({ displayAuthor: !displayAuthor, author: value }, () => {
       this.getData();
@@ -117,11 +116,11 @@ class Authors extends Component {
 
   getData = async () => {
     const { author } = this.state;
-    console.log(author, "author");
+
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
     const url = `http://localhost:3001/author-quotes/?author=${author}`;
-    console.log(url);
+
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -137,7 +136,7 @@ class Authors extends Component {
         id: each.id,
         quote: each.quote,
       }));
-      console.log(formattedData, "formatted Data");
+
       this.setState({ apiStatus: status.success, data: formattedData });
     } else {
       this.setState({ apiStatus: status.failure });

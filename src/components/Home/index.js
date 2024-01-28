@@ -22,7 +22,7 @@ class Home extends Component {
   getData = async () => {
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
-    console.log(jwtToken, "jwtoken");
+
     const url = `http://localhost:3001/top-quotes/`;
     const options = {
       headers: {
@@ -34,14 +34,14 @@ class Home extends Component {
     const response = await fetch(url, options);
     if (response.ok) {
       const data = await response.json();
-      //console.log(data, "data");
+
       const formattedData = data.map((each) => ({
         author: each.author,
         explanation: each.explanation,
         id: each.id,
         quote: each.quote,
       }));
-      console.log(formattedData, "formatted data");
+
       this.setState({ apiStatus: status.success, data: formattedData });
     } else {
       this.setState({ apiStatus: status.failure });

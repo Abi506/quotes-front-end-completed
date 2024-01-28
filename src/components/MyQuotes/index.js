@@ -32,7 +32,7 @@ class MyQuotes extends Component {
     }
     const jwtToken = Cookies.get("jwt_token");
     const url = `http://localhost:3001/my-quotes/`;
-    console.log(url, "here");
+
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -40,7 +40,7 @@ class MyQuotes extends Component {
       method: "GET",
     };
     const response = await fetch(url, options);
-    console.log(response, "response");
+
     if (response.ok) {
       const data = await response.json();
       const formattedData = data.map((each) => ({
@@ -48,7 +48,7 @@ class MyQuotes extends Component {
         quote: each.quote,
         explanation: each.explanation,
       }));
-      console.log(data, "formatted Data");
+
       if (data.length < 1) {
         this.setState({ apiStatus: status.no_quotes, data: formattedData });
       } else {

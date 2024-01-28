@@ -43,10 +43,8 @@ class ReactPopUp extends Component {
       age,
       occupation,
       mail,
-      passwordMisMatch,
       mobilenumber,
       confirmPassword,
-      allDetailsFilled,
     } = this.state;
     const userDetails = {
       username,
@@ -61,8 +59,6 @@ class ReactPopUp extends Component {
     };
     if (password !== confirmPassword) {
       this.setState({ passwordMisMatch: true });
-      return;
-
       if (
         username === "" ||
         password === "" ||
@@ -76,7 +72,6 @@ class ReactPopUp extends Component {
       ) {
         // If any of the fields are empty, set allDetailsFilled to false
         this.setState({ allDetailsFilled: false });
-        console.log("Please fill in all required fields");
       }
     } else {
       const apiUrl = `http://localhost:3001/register/`;
@@ -88,7 +83,7 @@ class ReactPopUp extends Component {
         body: JSON.stringify(userDetails),
       };
       const response = await fetch(apiUrl, method);
-      console.log(response, "register response");
+
       this.setState({
         allDetailsFilled: true,
         username: "",
@@ -103,8 +98,6 @@ class ReactPopUp extends Component {
         accountCreated: true,
         passwordMisMatch: false,
       });
-
-      console.log("All fields filled, form submitted");
     }
   };
 
@@ -136,7 +129,6 @@ class ReactPopUp extends Component {
       username,
       password,
       name,
-      gender,
       location,
       age,
       occupation,

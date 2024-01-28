@@ -39,7 +39,6 @@ class Quotes extends Component {
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
     const url = `http://localhost:3001/all-quotes?search=${search_text}`;
-    console.log(url, "url");
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -49,7 +48,6 @@ class Quotes extends Component {
     const response = await fetch(url, options);
     if (response.ok) {
       const data = await response.json();
-      console.log(data, "data");
       const formattedData = data.map((each) => ({
         quote: each.quote,
         explanation: each.explanation,
