@@ -15,6 +15,21 @@
 .popup-content {
   width: 80%;
 }
+.fill-all-details {
+  color: red;
+  font-family: inter;
+}
+.quotes-uploaded-message {
+  color: blue;
+  font-family: inter;
+}
+.trigger-button {
+  background: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 .upload-button {
   background: transparent;
   border: 1px solid lightblue;
@@ -26,5 +41,8 @@
 @media all and (min-width: 580px) {
   .popup-content {
     width: 36%;
+  }
+  .trigger-button {
+    min-height: 108px;
   }
 }

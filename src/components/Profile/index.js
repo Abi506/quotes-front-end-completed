@@ -10,6 +10,8 @@ import { FaMobileAlt } from "react-icons/fa";
 
 import Header from "../Header";
 import UploadQuotes from "../UploadQuotes";
+import DeleteQuote from "../DeleteQuotes";
+import UpdateQuotes from "../UpdateQuotes";
 
 import "./index.css";
 
@@ -92,7 +94,11 @@ class Profile extends Component {
             <p className="username">{data.username}</p>
           </div>
           <MdAccountCircle className="profile-image" />
-          <UploadQuotes className="popup-styles-profile" />
+          <div className="buttons-container">
+            <UploadQuotes className="popup-styles-profile" />
+            <UpdateQuotes />
+            <DeleteQuote />
+          </div>
           <div className="name-and-age-container">
             <p className="name">
               <span>
@@ -136,7 +142,11 @@ class Profile extends Component {
               <FaLocationDot className="location-icon" />
               {data.location}
             </p>
-            <UploadQuotes className="popup-styles-profile" />
+            <div className="buttons-container">
+              <UploadQuotes className="popup-styles-profile" />
+              <UpdateQuotes />
+              <DeleteQuote />
+            </div>
           </div>
           <div className="user-details-container-large">
             <p className="username">Username : {data.username}</p>

@@ -6,17 +6,17 @@ import "reactjs-popup/dist/index.css";
 
 import "./index.css";
 
-class UploadQuotes extends Component {
+class UpdateQuotes extends Component {
   state = {
-    userid: "",
+    quoteid: "",
     quote: "",
     explanation: "",
     allDetailsFilled: true,
-    updatedSuccessfull: false,
+    updatedSuccessfully: false,
   };
 
-  useridEvent = (event) => {
-    this.setState({ userid: event.target.value });
+  quoteidEvent = (event) => {
+    this.setState({ quoteid: event.target.value });
   };
 
   quoteEvent = (event) => {
@@ -28,17 +28,17 @@ class UploadQuotes extends Component {
 
   submitEvent = async (event) => {
     event.preventDefault();
-    const { userid, quote, explanation } = this.state;
-    const userDetails = { userid, quote, explanation };
+    const { quoteid, quote, explanation } = this.state;
+    const userDetails = { quoteid, quote, explanation };
 
-    if (userid === "" || quote === "" || explanation === "") {
+    if (quoteid === "" || quote === "" || explanation === "") {
       this.setState({ allDetailsFilled: false });
       console.log("Please fill in all required fields");
     } else {
       const apiUrl = `http://localhost:3001/my-quotes/`;
       const jwtToken = Cookies.get("jwt_token");
       const method = {
-        method: "POST",
+        method: "PUT",
         headers: {
           Authorization: `Bearer ${jwtToken}`,
           "Content-Type": "application/json",
@@ -50,10 +50,10 @@ class UploadQuotes extends Component {
 
       this.setState({
         allDetailsFilled: true,
-        userid: "",
+        quoteid: "",
         quote: "",
         explanation: "",
-        updatedSuccessfull: true,
+        updatedSuccessfully: true,
       });
       console.log("All fields filled, form submitted");
     }
@@ -61,19 +61,19 @@ class UploadQuotes extends Component {
 
   render() {
     const {
-      userid,
+      quoteid,
       explanation,
       quote,
-      updatedSuccessfull,
       allDetailsFilled,
+      updatedSuccessfully,
     } = this.state;
     return (
       <div className="popup-container">
         <Popup
           modal
           trigger={
-            <button type="button" className="upload-update-button">
-              Upload Quotes
+            <button type="button" className="upload-button">
+              Update Quotes
             </button>
           }
           className="custom-popup"
@@ -83,15 +83,15 @@ class UploadQuotes extends Component {
               <form className="quotes-upload-form" onSubmit={this.submitEvent}>
                 <h1 className="upload-quotes">Upload Quotes</h1>
                 <div className="container-form">
-                  <label htmlFor="userid" className="common-label">
-                    UserId
+                  <label htmlFor="quoteid" className="common-label">
+                    Quote Id
                   </label>
                   <input
                     type="text"
                     className="common-text-box"
-                    value={userid}
+                    value={quoteid}
                     placeholder="Enter Userid"
-                    onChange={this.useridEvent}
+                    onChange={this.quoteidEvent}
                     id="userid"
                   />
                 </div>
@@ -103,7 +103,7 @@ class UploadQuotes extends Component {
                     type="text"
                     className="common-text-box"
                     value={quote}
-                    placeholder="Enter Your QUote"
+                    placeholder="Enter QUote To Update"
                     onChange={this.quoteEvent}
                     id="quote"
                   />
@@ -121,9 +121,9 @@ class UploadQuotes extends Component {
                     id="userid"
                   />
                 </div>
-                {updatedSuccessfull && (
+                {updatedSuccessfully === true && (
                   <p className="quotes-uploaded-message">
-                    Quotes Uploaded Successfully
+                    Quote Updated Successfully
                   </p>
                 )}
                 {allDetailsFilled === false && (
@@ -135,7 +135,7 @@ class UploadQuotes extends Component {
                     className="register-submit-button"
                     onClick={this.submitEvent}
                   >
-                    Submit
+                    Update
                   </button>
                 </div>
               </form>
@@ -153,4 +153,4 @@ class UploadQuotes extends Component {
     );
   }
 }
-export default UploadQuotes;
+export default UpdateQuotes;

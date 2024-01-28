@@ -190,10 +190,10 @@ class Authors extends Component {
             <ul className="author-quotes-author-page">
               {data.map((each) => (
                 <li className="each-quote-author-page" key={each.id}>
-                  <h1 className="quote-heading-authors-page">"{each.quote}"</h1>
-                  <p className="explanation-para-authors-page">
-                    {each.explanation}
-                  </p>
+                  <p>Quote:</p>
+                  <h1 className="all-quotes-my-quote">"{each.quote}"</h1>
+                  <p>Explanation :</p>
+                  <p className="all-quotes-explanation">{each.explanation}</p>
                 </li>
               ))}
               <div className="back-button-container">

@@ -17,6 +17,15 @@
   height: 600px;
   overflow: auto;
 }
+.trigger-button-register {
+  background: transparent;
+  border: none;
+  margin-top: 10px;
+}
+.account-created-message {
+  color: blue;
+  font-family: inter;
+}
 .container-form {
   display: flex;
   flex-direction: column;

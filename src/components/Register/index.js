@@ -17,6 +17,9 @@ class ReactPopUp extends Component {
     mail: "",
     mobilenumber: "",
     allDetailsFilled: true,
+    accountCreated: false,
+    confirmPassword: "",
+    passwordMisMatch: false,
   };
 
   usernameEvent = (event) => {
@@ -40,7 +43,9 @@ class ReactPopUp extends Component {
       age,
       occupation,
       mail,
+      passwordMisMatch,
       mobilenumber,
+      confirmPassword,
       allDetailsFilled,
     } = this.state;
     const userDetails = {
@@ -54,21 +59,25 @@ class ReactPopUp extends Component {
       mail,
       mobilenumber,
     };
+    if (password !== confirmPassword) {
+      this.setState({ passwordMisMatch: true });
+      return;
 
-    if (
-      username === "" ||
-      password === "" ||
-      name === "" ||
-      gender === "" ||
-      location === "" ||
-      age === "" ||
-      occupation === "" ||
-      mail === "" ||
-      mobilenumber === ""
-    ) {
-      // If any of the fields are empty, set allDetailsFilled to false
-      this.setState({ allDetailsFilled: false });
-      console.log("Please fill in all required fields");
+      if (
+        username === "" ||
+        password === "" ||
+        name === "" ||
+        gender === "" ||
+        location === "" ||
+        age === "" ||
+        occupation === "" ||
+        mail === "" ||
+        mobilenumber === ""
+      ) {
+        // If any of the fields are empty, set allDetailsFilled to false
+        this.setState({ allDetailsFilled: false });
+        console.log("Please fill in all required fields");
+      }
     } else {
       const apiUrl = `http://localhost:3001/register/`;
       const method = {
@@ -80,7 +89,20 @@ class ReactPopUp extends Component {
       };
       const response = await fetch(apiUrl, method);
       console.log(response, "register response");
-      this.setState({ allDetailsFilled: true });
+      this.setState({
+        allDetailsFilled: true,
+        username: "",
+        password: "",
+        name: "",
+        gender: "",
+        location: "",
+        age: "",
+        occupation: "",
+        mail: "",
+        mobilenumber: "",
+        accountCreated: true,
+        passwordMisMatch: false,
+      });
 
       console.log("All fields filled, form submitted");
     }
@@ -105,6 +127,10 @@ class ReactPopUp extends Component {
     this.setState({ mobilenumber: event.target.value });
   };
 
+  confirmPasswordEvent = (event) => {
+    this.setState({ confirmPassword: event.target.value });
+  };
+
   render() {
     const {
       username,
@@ -117,26 +143,17 @@ class ReactPopUp extends Component {
       mail,
       mobilenumber,
       allDetailsFilled,
+      accountCreated,
+      confirmPassword,
+      passwordMisMatch,
     } = this.state;
-    console.log(
-      username,
-      password,
-      name,
-      gender,
-      location,
-      age,
-      occupation,
-      mail,
-      mobilenumber,
-      allDetailsFilled
-    );
 
     return (
       <div className="popup-container">
         <Popup
           modal
           trigger={
-            <button type="button" className="trigger-button">
+            <button type="button" className="trigger-button-register">
               <a href="#">Don't have an account? Sign up</a>
             </button>
           }
@@ -154,6 +171,7 @@ class ReactPopUp extends Component {
                     className="common-text-box"
                     placeholder="Enter Username"
                     onChange={this.usernameEvent}
+                    value={username}
                     id="username"
                   />
                 </div>
@@ -162,11 +180,25 @@ class ReactPopUp extends Component {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     className="common-text-box"
                     placeholder="Enter Password"
                     onChange={this.passwordEvent}
                     id="password"
+                    value={password}
+                  />
+                </div>
+                <div className="container-form">
+                  <label htmlFor="confirm-password" className="common-label">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    className="common-text-box"
+                    placeholder="Enter Password"
+                    id="confirm-password"
+                    onChange={this.confirmPasswordEvent}
+                    value={confirmPassword}
                   />
                 </div>
                 <div className="container-form">
@@ -177,6 +209,7 @@ class ReactPopUp extends Component {
                     type="text"
                     className="common-text-box"
                     placeholder="Enter Your Name"
+                    value={name}
                     onChange={this.nameEvent}
                     id="name"
                   />
@@ -203,6 +236,7 @@ class ReactPopUp extends Component {
                     className="common-text-box"
                     placeholder="Enter Your Location"
                     onChange={this.locationEvent}
+                    value={location}
                     id="location"
                   />
                 </div>
@@ -214,6 +248,7 @@ class ReactPopUp extends Component {
                     type="text"
                     className="common-text-box"
                     placeholder="Enter Your Age"
+                    value={age}
                     onChange={this.ageEvent}
                     id="age"
                   />
@@ -228,6 +263,7 @@ class ReactPopUp extends Component {
                     onChange={this.occupationEvent}
                     className="common-text-box"
                     id="occupation"
+                    value={occupation}
                   />
                 </div>
                 <div className="container-form">
@@ -239,6 +275,7 @@ class ReactPopUp extends Component {
                     className="common-text-box"
                     placeholder="Enter Your Email"
                     onChange={this.mailEvent}
+                    value={mail}
                     id="mail"
                   />
                 </div>
@@ -251,11 +288,20 @@ class ReactPopUp extends Component {
                     className="common-text-box"
                     placeholder="Enter Your Mobile Number"
                     onChange={this.mobilenumberEvent}
+                    value={mobilenumber}
                     id="mobilenumber"
                   />
                 </div>
                 {allDetailsFilled === false && (
                   <p className="details-message">Please Fill all Details</p>
+                )}
+                {accountCreated === true && (
+                  <p className="account-created-message">
+                    Account Created Successfully
+                  </p>
+                )}
+                {passwordMisMatch === true && (
+                  <p className="details-message">Password Mismatch</p>
                 )}
                 <div className="submit-container">
                   <button

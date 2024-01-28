@@ -24,8 +24,12 @@ class MyQuotes extends Component {
   }
 
   getData = async () => {
-    const { author } = this.state;
+    const { data } = this.state;
     this.setState({ apiStatus: status.in_progress });
+    if (data.length > 0) {
+      this.setState({ apiStatus: status.success });
+      return;
+    }
     const jwtToken = Cookies.get("jwt_token");
     const url = `http://localhost:3001/my-quotes/`;
     console.log(url, "here");
@@ -86,7 +90,6 @@ class MyQuotes extends Component {
   renderNoQuotesUploaded = () => {
     return (
       <>
-        <Header />
         <div className="no-quotes-container">
           <h1 className="no-quotes-heading">You Haven't Uploaded Quotes</h1>
           <p>Upload Quotes in the profile section</p>
@@ -100,12 +103,14 @@ class MyQuotes extends Component {
 
     return (
       <>
-        <Header />
         <div className="user-quotes-container">
           <ul className="user-uploaded-quotes-list">
             {data.map((each) => (
-              <li className="each-quotes-items">
-                <h1 className="all-quotes-my-quote">{each.quote}</h1>
+              <li className="each-quotes-items-myquotes" key={each.quoteid}>
+                <p className="quote-id">quote Id : {each.quoteid}</p>
+                <p>Quote:</p>
+                <h1 className="all-quotes-my-quote">"{each.quote}"</h1>
+                <p>Explanation :</p>
                 <p className="all-quotes-explanation">{each.explanation}</p>
               </li>
             ))}
@@ -130,7 +135,12 @@ class MyQuotes extends Component {
   };
 
   render() {
-    return <div>{this.renderFinal()}</div>;
+    return (
+      <>
+        <Header />
+        <div>{this.renderFinal()}</div>
+      </>
+    );
   }
 }
 export default MyQuotes;

@@ -1,8 +1,9 @@
-.each-quotes-items {
+.each-quotes-items-myquotes {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 .all-quotes-my-quote {
   font-family: inter;
+  text-align: center;
 }
 .no-quotes-container {
   display: flex;
@@ -12,6 +13,23 @@
   justify-content: center;
   min-height: 90vh;
 }
+.user-uploaded-quotes-list {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.all-quotes-explanation {
+  text-align: center;
+}
+.each-quotes-items-myquotes {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  list-style-type: none;
+}
+.quote-id {
+  font-family: inter;
+}
 @media all and (max-width: 580px) {
   .no-quotes-heading {
     font-family: inter;
@@ -20,4 +38,17 @@
 }
 .no-quotes-heading {
   font-family: inter;
+}
+@media all and (min-width: 580px) {
+  .user-uploaded-quotes-list {
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .each-quotes-items-myquotes {
+    width: 45%;
+    list-style-type: none;
+    margin-right: 20px;
+  }
 }

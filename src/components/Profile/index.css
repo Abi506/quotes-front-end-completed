@@ -7,6 +7,10 @@
 .user-profile-container-large {
   display: none;
 }
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+}
 .popup-styles-profile {
   width: 100%;
 }

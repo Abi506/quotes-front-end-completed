@@ -1,0 +1,13 @@
+.upload-update-button {
+  border: none;
+  background-color: lightblue;
+  border-radius: 4px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+@media all and (min-width: 580px) {
+  .upload-update-button {
+    min-height: 50px;
+  }
+}
