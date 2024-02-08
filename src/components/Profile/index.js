@@ -7,7 +7,7 @@ import { PiSuitcaseSimpleFill } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
 import { CiMail } from "react-icons/ci";
 import { FaMobileAlt } from "react-icons/fa";
-
+import Url from "../../config";
 import Header from "../Header";
 import UploadQuotes from "../UploadQuotes";
 import DeleteQuote from "../DeleteQuotes";
@@ -35,7 +35,7 @@ class Profile extends Component {
   getData = async () => {
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
-    const url = `http://localhost:3001/profile/`;
+    const url = `${Url}/profile/`;
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,

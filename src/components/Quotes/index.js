@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import Cookies from "js-cookie";
 import { ThreeCircles } from "react-loader-spinner";
 import QuotesItem from "../QuotesItem";
+import Url from "../../config";
 import Header from "../Header";
 import "./index.css";
 
@@ -38,7 +39,7 @@ class Quotes extends Component {
     const { search_text } = this.state;
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
-    const url = `http://localhost:3001/all-quotes?search=${search_text}`;
+    const url = `${Url}/all-quotes?search=${search_text}`;
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,

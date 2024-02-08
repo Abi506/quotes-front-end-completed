@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeCircles } from "react-loader-spinner";
+import Url from "../../config";
 import Header from "../Header";
 
 import "./index.css";
@@ -23,7 +24,7 @@ class Home extends Component {
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
 
-    const url = `http://localhost:3001/top-quotes/`;
+    const url = `${Url}/top-quotes/`;
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,

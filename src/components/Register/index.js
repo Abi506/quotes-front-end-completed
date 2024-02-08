@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Url from "../../config";
 import Popup from "reactjs-popup";
 
 import "reactjs-popup/dist/index.css";
@@ -74,7 +75,7 @@ class ReactPopUp extends Component {
         this.setState({ allDetailsFilled: false });
       }
     } else {
-      const apiUrl = `http://localhost:3001/register/`;
+      const apiUrl = `${Url}/register/`;
       const method = {
         method: "POST",
         headers: {

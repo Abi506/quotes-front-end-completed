@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
 import Popup from "reactjs-popup";
-
+import Url from "../../config";
 import "reactjs-popup/dist/index.css";
 
 import "./index.css";
@@ -34,7 +34,7 @@ class UploadQuotes extends Component {
     if (userid === "" || quote === "" || explanation === "") {
       this.setState({ allDetailsFilled: false });
     } else {
-      const apiUrl = `http://localhost:3001/my-quotes/`;
+      const apiUrl = `${Url}/my-quotes/`;
       const jwtToken = Cookies.get("jwt_token");
       const method = {
         method: "POST",

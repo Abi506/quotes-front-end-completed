@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import Url from "../../config";
 import { ThreeCircles } from "react-loader-spinner";
 import Header from "../Header";
 
@@ -36,7 +37,7 @@ class QuoteItemDetails extends Component {
       method: "GET",
     };
 
-    const apiUrl = `http://localhost:3001/all-quotes/${id}`;
+    const apiUrl = `${Url}/all-quotes/${id}`;
     const response = await fetch(apiUrl, options);
     if (response.ok) {
       const data = await response.json();

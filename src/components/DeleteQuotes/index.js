@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
 import Popup from "reactjs-popup";
+import Url from "../../config";
 
 import "reactjs-popup/dist/index.css";
 
@@ -25,7 +26,7 @@ class DeleteQuotes extends Component {
         quoteid: "",
         submitEventSuccess: true,
       });
-      const apiUrl = "http://localhost:3001/my-quotes/";
+      const apiUrl = `${Url}/my-quotes/`;
       const jwtToken = Cookies.get("jwt_token");
       const userDetails = { quoteid };
       const method = {

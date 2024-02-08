@@ -5,7 +5,23 @@
   flex-direction: column;
   justify-content: center;
 }
-
+.checkbox-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+.checkbox{
+  align-self: flex-start;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+.show-password{
+  margin: 0px;
+  padding: 0px;
+}
 .logo {
   margin-right: 10px;
   border: 3px solid lightblue;

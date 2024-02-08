@@ -1,7 +1,9 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeCircles } from "react-loader-spinner";
+import Url from "../../config";
 import Header from "../Header";
+
 
 import "./index.css";
 
@@ -119,7 +121,7 @@ class Authors extends Component {
 
     this.setState({ apiStatus: status.in_progress });
     const jwtToken = Cookies.get("jwt_token");
-    const url = `http://localhost:3001/author-quotes/?author=${author}`;
+    const url = `${Url}/author-quotes/?author=${author}`;
 
     const options = {
       headers: {

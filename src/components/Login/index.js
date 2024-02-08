@@ -2,6 +2,7 @@ import { Component } from "react";
 import Cookies from "js-cookie";
 import { Redirect } from "react-router-dom";
 import ReactPopUp from "../Register";
+import Url from "../../config";
 
 import "./index.css";
 
@@ -12,6 +13,7 @@ class Login extends Component {
     isError: false,
     errorMsg: "",
     redirectToHome: false,
+    showPassword:false
   };
   userNameEvent = (event) => {
     this.setState({ username: event.target.value });
@@ -20,6 +22,11 @@ class Login extends Component {
   passwordEvent = (event) => {
     this.setState({ password: event.target.value });
   };
+
+  onShowPasswordEvent=()=>{
+    const{showPassword}=this.state
+    this.setState({showPassword:!showPassword})
+  }
 
   onSubmitSuccess = (jwtToken) => {
     const { history } = this.props;
@@ -31,6 +38,7 @@ class Login extends Component {
 
   onSubmitFailure = (errorMsg) => {
     this.setState({ isError: true, errorMsg });
+    console.log((errorMsg),'here')
   };
 
   submitEvent = async (event) => {
@@ -39,7 +47,7 @@ class Login extends Component {
     const { username, password } = this.state;
     const userDetails = { username, password };
 
-    const apiUrl = "http://localhost:3001/login/";
+    const apiUrl = `${Url}/login/`;
     const method = {
       method: "POST",
       headers: {
@@ -49,7 +57,6 @@ class Login extends Component {
     };
 
     const response = await fetch(apiUrl, method);
-
     const data = await response.json();
 
     if (response.ok === true) {
@@ -74,23 +81,40 @@ class Login extends Component {
     </div>
   );
 
-  renderPassword = () => (
+  renderPassword = () => {
+    const{showPassword,password}=this.state
+    return(
+      <>
     <div className="password-container">
       <label htmlFor="password" className="password-label-styles">
         Password*
       </label>
-      <input
+      {showPassword===false && (<input
         type="password"
         onChange={this.passwordEvent}
         className="password-input-box"
         placeholder="Enter Password"
+        value={password}
         id="password"
-      />
+      />)}
+      {showPassword===true && (<input
+        type="text"
+        onChange={this.passwordEvent}
+        className="password-input-box"
+        value={password}
+        placeholder="Enter Password"
+        id="password"
+      />)}
     </div>
+    <div className="checkbox-container">
+        <input type='checkbox' className="checkbox" id='checkbox' onChange={this.onShowPasswordEvent}/>
+        <label className="show-password" htmlFor="checkbox">Show Password</label>
+      </div>
+    </>
   );
-
+    }
   render() {
-    const { isError, errorMsg } = this.state;
+    const { isError, errorMsg,showPassword } = this.state;
     const jwtToken = Cookies.get("jwt_token");
     if (jwtToken !== undefined) {
       return <Redirect to="/" />;
