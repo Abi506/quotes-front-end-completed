@@ -57,11 +57,16 @@ class Login extends Component {
     };
 
     const response = await fetch(apiUrl, method);
+    console.log(response,'data')
+    if(response.ok===false){
+        this.setState({isError:true,errorMsg:"Invalid Password"})
+    }
     const data = await response.json();
 
     if (response.ok === true) {
       this.onSubmitSuccess(data.jwtToken);
     } else if (response.ok === false) {
+      console.log("Here it is failed")
       this.onSubmitFailure(data.error_msg);
     }
   };
